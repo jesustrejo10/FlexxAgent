@@ -7,7 +7,7 @@
 
  /* Hello, World! */
  const {LiquidCore} = require('liquidcore')
-const {sayHello} = require ('sayHello')
+const {sayHello} = require ('./testJs/sayHello')
 // A micro service will exit when it has nothing left to do.  So to
 // avoid a premature exit, set an indefinite timer.  When we
 // exit() later, the timer will get invalidated.

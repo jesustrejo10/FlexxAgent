@@ -230,16 +230,21 @@ __d(function (global, _$$_REQUIRE, _$$_IMPORT_DEFAULT, _$$_IMPORT_ALL, module, e
     LiquidCore
   } = _$$_REQUIRE(_dependencyMap[0]);
 
+  const {
+    sayHello
+  } = _$$_REQUIRE(_dependencyMap[1]);
+
   setInterval(() => {}, 1000);
   console.log('Hello, World!');
   LiquidCore.on('ping', () => {
+    sayHello();
     LiquidCore.emit('pong', {
       message: 'Hello, World from LiquidCore!'
     });
     process.exit(0);
   });
   LiquidCore.emit('ready');
-},0,[1]);
+},0,[1,5]);
 __d(function (global, _$$_REQUIRE, _$$_IMPORT_DEFAULT, _$$_IMPORT_ALL, module, exports, _dependencyMap) {
   "use strict";
 
@@ -365,4 +370,15 @@ __d(function (global, _$$_REQUIRE, _$$_IMPORT_DEFAULT, _$$_IMPORT_ALL, module, e
 
   module.exports = LiquidCore.require('path');
 },4,[]);
+__d(function (global, _$$_REQUIRE, _$$_IMPORT_DEFAULT, _$$_IMPORT_ALL, module, exports, _dependencyMap) {
+  "use strict";
+
+  function sayHello() {
+    console.log("hello");
+  }
+
+  module.exports = {
+    sayHello
+  };
+},5,[]);
 __r(0);
