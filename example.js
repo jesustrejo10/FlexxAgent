@@ -7,7 +7,7 @@
 
  /* Hello, World! */
  const {LiquidCore} = require('liquidcore')
-
+const {sayHello} = require ('sayHello')
 // A micro service will exit when it has nothing left to do.  So to
 // avoid a premature exit, set an indefinite timer.  When we
 // exit() later, the timer will get invalidated.
@@ -19,6 +19,7 @@ console.log('Hello, World!')
 LiquidCore.on( 'ping', () => {
     // When we get the ping from the host, respond with "Hello, World!"
     // and then exit.
+    sayHello()
     LiquidCore.emit( 'pong', { message: 'Hello, World from LiquidCore!' } )
     process.exit(0)
 })
