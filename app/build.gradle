@@ -15,7 +15,6 @@ android {
         targetSdk 32
         versionCode 1
         versionName "1.0"
-
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 
@@ -31,6 +30,9 @@ android {
     }
     kotlinOptions {
         jvmTarget = '1.8'
+    }
+    packagingOptions {
+        exclude 'thirdpartynotice.txt'
     }
 }
 
@@ -63,5 +65,11 @@ dependencies {
     //hilt
     implementation "com.google.dagger:hilt-android:2.38.1"
     kapt "com.google.dagger:hilt-android-compiler:2.38.1"
+
+
+    //iot Hub Client
+    implementation 'androidx.multidex:multidex:2.0.1'
+    implementation ('com.microsoft.azure.sdk.iot:iot-device-client:1.14.2')
+    implementation ('org.apache.commons:commons-lang3:3.6')
 }
 apply from: new File(rootProject.projectDir, '.liquidcore/liquidcore.build.gradle')
