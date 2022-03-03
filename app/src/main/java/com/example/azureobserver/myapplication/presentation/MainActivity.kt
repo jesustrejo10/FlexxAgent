@@ -21,10 +21,21 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
         executeMicroservice()
 
 
+    }
+
+
+    override fun onCreateView(
+        parent: View?,
+        name: String,
+        context: Context,
+        attrs: AttributeSet
+    ): View? {
+
+        mainActivityViewModel = ViewModelProvider(this).get(MainActivityViewModel::class.java)
+        return super.onCreateView(parent, name, context, attrs)
     }
 
     private fun executeMicroservice() {
@@ -56,13 +67,5 @@ class MainActivity : AppCompatActivity() {
         service.start()
     }
 
-    override fun onCreateView(
-        parent: View?,
-        name: String,
-        context: Context,
-        attrs: AttributeSet
-    ): View? {
-        mainActivityViewModel = ViewModelProvider(this).get(MainActivityViewModel::class.java)
-        return super.onCreateView(parent, name, context, attrs)
-    }
+
 }
