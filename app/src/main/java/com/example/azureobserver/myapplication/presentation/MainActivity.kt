@@ -6,7 +6,7 @@ import android.os.Bundle
 import android.util.AttributeSet
 import android.view.View
 import androidx.lifecycle.ViewModelProvider
-import com.example.azureobserver.R
+import com.example.azureobserver.databinding.ActivityMainBinding
 import com.example.azureobserver.myapplication.presentation.viewmodel.MainActivityViewModel
 import dagger.hilt.android.AndroidEntryPoint
 import org.liquidplayer.service.MicroService
@@ -14,9 +14,13 @@ import org.liquidplayer.service.MicroService
 @AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
     lateinit var mainActivityViewModel: MainActivityViewModel
+    lateinit var binding : ActivityMainBinding
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        binding = ActivityMainBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
         executeMicroservice()
 

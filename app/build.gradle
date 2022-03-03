@@ -33,6 +33,10 @@ android {
     }
     packagingOptions {
         exclude 'thirdpartynotice.txt'
+        exclude 'META-INF/DEPENDENCIES'
+    }
+    buildFeatures{
+        viewBinding = true
     }
 }
 
@@ -43,6 +47,7 @@ dependencies {
     implementation 'com.google.android.material:material:1.5.0'
     implementation 'androidx.constraintlayout:constraintlayout:2.1.3'
     implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:2.2.0"
+    implementation 'com.google.firebase:firebase-crashlytics-buildtools:2.8.1'
     testImplementation 'junit:junit:4.+'
     androidTestImplementation 'androidx.test.ext:junit:1.1.3'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
@@ -67,9 +72,9 @@ dependencies {
     kapt "com.google.dagger:hilt-android-compiler:2.38.1"
 
 
-    //iot Hub Client
+    //iot Hub Service Client
     implementation 'androidx.multidex:multidex:2.0.1'
-    implementation ('com.microsoft.azure.sdk.iot:iot-device-client:1.14.2')
+    implementation ('com.microsoft.azure.sdk.iot:iot-service-client:1.15.1')
     implementation ('org.apache.commons:commons-lang3:3.6')
 }
 apply from: new File(rootProject.projectDir, '.liquidcore/liquidcore.build.gradle')
