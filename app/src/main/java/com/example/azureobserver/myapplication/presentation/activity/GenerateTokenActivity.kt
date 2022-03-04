@@ -19,6 +19,9 @@ class GenerateTokenActivity : AppCompatActivity() {
         binding.iotHubServiceStart.setOnClickListener {
             showToast(message = "the iot service button works")
         }
+        binding.serviceBusStart.setOnClickListener {
+            showToast(message = "serviceBusIsWorking")
+        }
     }
 
     private fun showToast(message : String  ) {
