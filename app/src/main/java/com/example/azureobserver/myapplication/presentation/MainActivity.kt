@@ -28,15 +28,14 @@ class MainActivity : AppCompatActivity() {
     lateinit var client : DeviceClient
     val protocol : IotHubClientProtocol = IotHubClientProtocol.MQTT
      var msgReceivedCount = 0
-    private val handler = Handler()
-    lateinit var  sendThread: Thread
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         initButtons()
         setContentView(binding.root)
-        executeMicroservice()
+//        executeMicroservice()
 
 
     }
