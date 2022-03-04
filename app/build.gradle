@@ -6,6 +6,7 @@ plugins {
 apply plugin: 'kotlin-kapt'
 apply plugin: 'dagger.hilt.android.plugin'
 
+
 android {
     compileSdk 32
 
@@ -16,7 +17,12 @@ android {
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        each {
+            //buildTypes.mBuildConfigFields 'DATATYPE','VARIABLE',|"GRADLE VARIABLE|"'
+            buildConfigField 'String', 'DeviceConnectionString', project.hasProperty('DeviceConnectionString') ? '"'+project.property('DeviceConnectionString')+'"' : '"Define Device Connection"'
+        }
     }
+
 
     buildTypes {
         release {
@@ -74,7 +80,11 @@ dependencies {
 
     //iot Hub Service Client
     implementation 'androidx.multidex:multidex:2.0.1'
-    implementation ('com.microsoft.azure.sdk.iot:iot-device-client:1.14.2')
+    implementation ('com.microsoft.azure.sdk.iot:iot-device-client:1.14.2'){
+        exclude module: 'azure-storage'
+    }
+    implementation ('com.microsoft.azure.android:azure-storage-android:2.0.0@aar')
     implementation ('org.apache.commons:commons-lang3:3.6')
+
 }
 apply from: new File(rootProject.projectDir, '.liquidcore/liquidcore.build.gradle')
