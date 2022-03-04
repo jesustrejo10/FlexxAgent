@@ -1,11 +1,13 @@
 package com.example.azureobserver.myapplication.presentation.activity
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
 
 import com.example.azureobserver.databinding.ActivityMainBinding
+import com.example.azureobserver.myapplication.domain.model.entities.BearerToken
 import com.example.azureobserver.myapplication.presentation.viewmodel.MainActivityViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -31,9 +33,21 @@ class MainActivity : AppCompatActivity() {
             showToast(message = "the iot service button works")
         }
         binding.serviceBusStart.setOnClickListener {
-            showToast(message = "serviceBusIsWorking")
+            mainActivityViewModel.getAzureServiceBusToken()
+            if (isBearerLoginTokenInDevice()){
+                navigateToServiceBusActivity()
+            }
+
         }
     }
+
+    private fun navigateToServiceBusActivity() {
+        val intent = Intent(this, ServiceBusActivity::class.java)
+        startActivity(intent)
+        this.onDestroy()
+    }
+
+    private fun isBearerLoginTokenInDevice() = BearerToken.token.length > 5
 
     private fun showToast(message : String  ) {
         val toast = Toast.makeText(this, message, Toast.LENGTH_LONG)

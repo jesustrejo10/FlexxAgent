@@ -15,7 +15,7 @@ class MainActivityViewModel @Inject constructor(
     init{
         getAzureServiceBusToken()
     }
-    private fun getAzureServiceBusToken() {
+     fun getAzureServiceBusToken() {
         viewModelScope.launch(Dispatchers.IO) {
             val response = getTokenForServiceBusUseCase.invoke()
             if (response != null) {
