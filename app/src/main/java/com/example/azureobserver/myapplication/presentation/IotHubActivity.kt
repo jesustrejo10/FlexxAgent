@@ -2,14 +2,12 @@ package com.example.azureobserver.myapplication.presentation
 
 import android.content.Context
 import android.os.Bundle
-import android.os.Handler
-import android.os.Looper
 import android.util.AttributeSet
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
-import com.example.azureobserver.databinding.ActivityMainBinding
-import com.example.azureobserver.myapplication.presentation.viewmodel.MainActivityViewModel
+import com.example.azureobserver.databinding.ActivityIothubBinding
+import com.example.azureobserver.myapplication.presentation.viewmodel.IotHubActivityViewModel
 import com.microsoft.azure.sdk.iot.device.*
 import com.microsoft.azure.sdk.iot.device.DeviceTwin.DeviceMethodCallback
 import com.microsoft.azure.sdk.iot.device.DeviceTwin.DeviceMethodData
@@ -21,23 +19,20 @@ import org.liquidplayer.service.MicroService
 import java.io.UnsupportedEncodingException
 
 @AndroidEntryPoint
-class MainActivity : AppCompatActivity() {
-    lateinit var mainActivityViewModel: MainActivityViewModel
-    lateinit var binding : ActivityMainBinding
+class IotHubActivity : AppCompatActivity() {
+    lateinit var iotHubActivityViewModel: IotHubActivityViewModel
+    lateinit var binding : ActivityIothubBinding
     private val connString = "HostName=retiaTest.azure-devices.net;DeviceId=MyAndroidDevice;SharedAccessKey=yhwhRxI8OdEH5eGjRizosLwCzYDZBhhG4M2Mrtj8FGo="
     lateinit var client : DeviceClient
     val protocol : IotHubClientProtocol = IotHubClientProtocol.MQTT
      var msgReceivedCount = 0
 
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityMainBinding.inflate(layoutInflater)
+        binding = ActivityIothubBinding.inflate(layoutInflater)
         initButtons()
         setContentView(binding.root)
 //        executeMicroservice()
-
-
     }
 
     private fun initButtons() {
@@ -46,15 +41,13 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-
-
     override fun onCreateView(
         parent: View?,
         name: String,
         context: Context,
         attrs: AttributeSet
     ): View? {
-        mainActivityViewModel = ViewModelProvider(this).get(MainActivityViewModel::class.java)
+        iotHubActivityViewModel = ViewModelProvider(this).get(IotHubActivityViewModel::class.java)
         return super.onCreateView(parent, name, context, attrs)
     }
 

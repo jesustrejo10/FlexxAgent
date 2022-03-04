@@ -13,7 +13,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AzureObserver">
         <activity
-            android:name=".myapplication.presentation.activity.GenerateTokenActivity"
+            android:name=".myapplication.presentation.activity.MainActivity"
             android:exported="true" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -21,7 +21,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".myapplication.presentation.MainActivity"
+            android:name=".myapplication.presentation.IotHubActivity"
             android:exported="true">
 
         </activity>

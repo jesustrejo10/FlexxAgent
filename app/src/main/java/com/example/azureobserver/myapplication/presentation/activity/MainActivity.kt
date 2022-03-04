@@ -4,25 +4,26 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
-import com.example.azureobserver.databinding.ActivityGenerateTokenBinding
-import com.example.azureobserver.myapplication.presentation.viewmodel.GenerateTokenActivityViewModel
+
+import com.example.azureobserver.databinding.ActivityMainBinding
+import com.example.azureobserver.myapplication.presentation.viewmodel.MainActivityViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class GenerateTokenActivity : AppCompatActivity() {
-    lateinit var binding : ActivityGenerateTokenBinding
-    lateinit var generateTokenActivityViewModel: GenerateTokenActivityViewModel
+class MainActivity : AppCompatActivity() {
+    lateinit var binding : ActivityMainBinding
+    lateinit var mainActivityViewModel: MainActivityViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityGenerateTokenBinding.inflate(layoutInflater)
+        binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
         createViewModel()
         initButtons()
     }
 
     private fun createViewModel() {
-        generateTokenActivityViewModel = ViewModelProvider(this).get(GenerateTokenActivityViewModel::class.java)
+        mainActivityViewModel = ViewModelProvider(this).get(MainActivityViewModel::class.java)
     }
 
     private fun initButtons() {
