@@ -14,7 +14,11 @@ class MainActivityViewModel @Inject constructor(
     init{
         println("the view model has been created okay")
         viewModelScope.launch(Dispatchers.IO) {
-            getTokenForServiceBusUseCase.invoke()
+            var response = getTokenForServiceBusUseCase.invoke()
+            if (response != null)
+            {
+                println()
+            }
         }
     }
 

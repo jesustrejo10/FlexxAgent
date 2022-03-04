@@ -10,7 +10,6 @@ import javax.inject.Inject
 interface ServiceBusRepository {
     fun getServiceBusMessages(): Call<AzureMessage>
     fun sendMessageServiceBus(message: String): Call<Any>
-    fun getServiceBusToken():Call<AzureServiceBusToken>
 }
 
 
@@ -25,9 +24,6 @@ class ServiceBusRepositoryImpl @Inject constructor(private val endPoints: EndPoi
         message = message)
     }
 
-    override fun getServiceBusToken(): Call<AzureServiceBusToken> {
-        TODO("Not yet implemented")
-    }
 
 
 }

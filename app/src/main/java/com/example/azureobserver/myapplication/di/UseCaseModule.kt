@@ -1,5 +1,6 @@
 package com.example.azureobserver.myapplication.di
 
+import com.example.azureobserver.myapplication.data.repository.LoginAzureRepository
 import com.example.azureobserver.myapplication.data.repository.ServiceBusRepository
 import com.example.azureobserver.myapplication.domain.usecase.*
 import dagger.Module
@@ -21,7 +22,7 @@ object UseCaseModule {
         return SendMessageToServiceBusUseCaseImpl(repository)
     }
     @Provides
-    fun provideGetTokenForServiceBusUseCase(repository: ServiceBusRepository) : GetTokenForServiceBusUseCase{
+    fun provideGetTokenForServiceBusUseCase(repository: LoginAzureRepository) : GetTokenForServiceBusUseCase{
         return GetTokenForServiceBusImpl(repository)
     }
 }

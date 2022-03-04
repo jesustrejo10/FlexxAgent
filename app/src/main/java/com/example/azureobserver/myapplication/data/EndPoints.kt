@@ -18,4 +18,5 @@ interface EndPoints {
 
         @POST("myqueuetest2/messages")
         fun sendMessage(@Header("Authorization") token:String, @Body message: String) : Call<Any>
+
     }
