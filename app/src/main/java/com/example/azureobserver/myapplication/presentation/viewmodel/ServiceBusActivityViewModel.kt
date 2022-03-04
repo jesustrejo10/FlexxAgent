@@ -16,7 +16,7 @@ class ServiceBusActivityViewModel @Inject constructor(
     , private val sendMessageToServiceBusUseCase: SendMessageToServiceBusUseCase
 ): ViewModel() {
     init {
-        println("The fragment has been created correctly")
+
     }
 
     fun getMessageFromServiceBus(){

@@ -6,4 +6,46 @@
     android:layout_height="match_parent"
     tools:context=".myapplication.presentation.activity.ServiceBusActivity">
 
+    <com.google.android.material.textfield.TextInputEditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:layout_marginHorizontal="12dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <LinearLayout
+        android:id="@+id/serviceBusButtonsContainer"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginHorizontal="12dp"
+        android:layout_marginBottom="8dp"
+        android:orientation="vertical"
+        android:weightSum="2">
+
+        <Button
+            android:layout_weight="1"
+            android:id="@+id/sendMessageServiceBus"
+            android:paddingVertical="12dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Send message"
+            android:textAllCaps="false" />
+
+        <Button
+            android:layout_weight="1"
+            android:id="@+id/getMessageServiceBus"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingVertical="12dp"
+            android:text="Get message"
+            android:textAllCaps="false" />
+
+
+    </LinearLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>
