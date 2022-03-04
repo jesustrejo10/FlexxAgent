@@ -19,7 +19,7 @@ class MainActivityViewModel @Inject constructor(
         viewModelScope.launch(Dispatchers.IO) {
             val response = getTokenForServiceBusUseCase.invoke()
             if (response != null) {
-                BearerToken.token = response.tokenType + response.token
+                BearerToken.token = response.tokenType+" " + response.token
             }
         }
     }

@@ -29,15 +29,15 @@ class ServiceBusActivityViewModel @Inject constructor(
         }
     }
 
-    fun sendMessageToServiceBus(){
+    fun sendMessageToServiceBus(message : String ){
 
-        val message = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n" +
-                "<note>\n" +
-                "  <to>Tove</to>\n" +
-                "  <from>Jani</from>\n" +
-                "  <heading>Reminder</heading>\n" +
-                "  <body>Don't forget me this weekend!</body>\n" +
-                "</note>"
+//        val message = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n" +
+//                "<note>\n" +
+//                "  <to>Tove</to>\n" +
+//                "  <from>Jani</from>\n" +
+//                "  <heading>Reminder</heading>\n" +
+//                "  <body>Don't forget me this weekend!</body>\n" +
+//                "</note>"
         viewModelScope.launch(Dispatchers.IO){
             try {
                 val response = sendMessageToServiceBusUseCase.invoke(message = message)

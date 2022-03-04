@@ -8,6 +8,7 @@ import androidx.lifecycle.ViewModelProvider
 
 import com.example.azureobserver.databinding.ActivityMainBinding
 import com.example.azureobserver.myapplication.domain.model.entities.BearerToken
+import com.example.azureobserver.myapplication.presentation.IotHubActivity
 import com.example.azureobserver.myapplication.presentation.viewmodel.MainActivityViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -30,21 +31,24 @@ class MainActivity : AppCompatActivity() {
 
     private fun initButtons() {
         binding.iotHubServiceStart.setOnClickListener {
-            showToast(message = "the iot service button works")
+            navigateToIotHubActivity()
         }
         binding.serviceBusStart.setOnClickListener {
             mainActivityViewModel.getAzureServiceBusToken()
             if (isBearerLoginTokenInDevice()){
                 navigateToServiceBusActivity()
             }
-
         }
+    }
+
+    private fun navigateToIotHubActivity() {
+        val intent = Intent(this, IotHubActivity::class.java)
+        startActivity(intent)
     }
 
     private fun navigateToServiceBusActivity() {
         val intent = Intent(this, ServiceBusActivity::class.java)
         startActivity(intent)
-        this.onDestroy()
     }
 
     private fun isBearerLoginTokenInDevice() = BearerToken.token.length > 5

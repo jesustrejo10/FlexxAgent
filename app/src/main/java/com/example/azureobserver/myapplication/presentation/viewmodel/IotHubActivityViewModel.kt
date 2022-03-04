@@ -13,9 +13,11 @@ import javax.inject.Inject
 
 @HiltViewModel
 class IotHubActivityViewModel @Inject constructor(
-    private val getMessageUseCase: GetMessageFromServiceBusUseCase, private val sendMessageToServiceBusUseCase: SendMessageToServiceBusUseCase)
-    : ViewModel() {
-    init {
+    private val getMessageUseCase: GetMessageFromServiceBusUseCase,
+    private val sendMessageToServiceBusUseCase: SendMessageToServiceBusUseCase) :
+    ViewModel() {
 
-    }
+        init {
+
+        }
     }
