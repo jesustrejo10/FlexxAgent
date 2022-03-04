@@ -15,12 +15,11 @@ interface LoginAzureRepository {
 class LoginAzureRepositoryImp @Inject constructor(private val microsoftLoginEndPoints : MicrosoftLoginEndPoints): LoginAzureRepository  {
     override fun getServiceBusToken(): Call<AzureServiceBusToken>? {
         val requestForGetToken = AuthenticationTokenRequest()
-//         var response =   microsoftLoginEndPoints.getToken(grantType = requestForGetToken.grantType,
-//        clientId = requestForGetToken.clientId,
-//        clientSecret = requestForGetToken.clientSecret,
-//        resourceUrl = requestForGetToken.resource)
-//    return response
-        println("hola")
-       return null
+         var response =   microsoftLoginEndPoints.getToken(
+             grantType = requestForGetToken.grantType,
+             clientId = requestForGetToken.clientId,
+             clientSecret = requestForGetToken.clientSecret,
+             resourceUrl = requestForGetToken.resource)
+    return response
     }
 }
