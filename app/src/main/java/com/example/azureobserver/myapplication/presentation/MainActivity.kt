@@ -43,7 +43,6 @@ class MainActivity : AppCompatActivity() {
 
     private fun initButtons() {
         binding.initIotClient.setOnClickListener {
-
             initIotHubClient()
         }
     }
