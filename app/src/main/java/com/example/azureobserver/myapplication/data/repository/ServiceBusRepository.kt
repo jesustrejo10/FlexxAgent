@@ -2,6 +2,7 @@ package com.example.azureobserver.myapplication.data.repository
 
 
 import com.example.azureobserver.myapplication.data.EndPoints
+import com.example.azureobserver.myapplication.domain.model.entities.AzureServiceBusToken
 import com.example.azureobserver.myapplication.domain.model.request.AzureMessage
 import retrofit2.Call
 import javax.inject.Inject
@@ -9,6 +10,7 @@ import javax.inject.Inject
 interface ServiceBusRepository {
     fun getServiceBusMessages(): Call<AzureMessage>
     fun sendMessageServiceBus(message: String): Call<Any>
+    fun getServiceBusToken():Call<AzureServiceBusToken>
 }
 
 
@@ -22,4 +24,10 @@ class ServiceBusRepositoryImpl @Inject constructor(private val endPoints: EndPoi
             token = "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6ImpTMVhvMU9XRGpfNTJ2YndHTmd2UU8yVnpNYyIsImtpZCI6ImpTMVhvMU9XRGpfNTJ2YndHTmd2UU8yVnpNYyJ9.eyJhdWQiOiJodHRwczovL3NlcnZpY2VidXMuYXp1cmUubmV0IiwiaXNzIjoiaHR0cHM6Ly9zdHMud2luZG93cy5uZXQvMmI3N2IzMGMtNmFmMy00N2NlLThjY2EtYjcwY2VmM2U3NjU0LyIsImlhdCI6MTY0NjI1ODIxNSwibmJmIjoxNjQ2MjU4MjE1LCJleHAiOjE2NDYyNjIxMTUsImFpbyI6IkUyWmdZTmhxWER4bHQzUHgvbldQdjVhVmJEeGZEUUE9IiwiYXBwaWQiOiJlMDYxODE1Mi0yZWRjLTQzMjktOTk5Ny1mMjAxYWRjODU2OTQiLCJhcHBpZGFjciI6IjEiLCJpZHAiOiJodHRwczovL3N0cy53aW5kb3dzLm5ldC8yYjc3YjMwYy02YWYzLTQ3Y2UtOGNjYS1iNzBjZWYzZTc2NTQvIiwib2lkIjoiODY0OWVhMTUtY2ZiNC00NDc5LWJmZWEtODk0MTAwZDQ5OTJhIiwicmgiOiIwLkFVWUFETE4zS19OcXprZU15cmNNN3o1MlZQa09vWUJvZ1QxSnFfa3lsOFR2Ymp5QUFBQS4iLCJzdWIiOiI4NjQ5ZWExNS1jZmI0LTQ0NzktYmZlYS04OTQxMDBkNDk5MmEiLCJ0aWQiOiIyYjc3YjMwYy02YWYzLTQ3Y2UtOGNjYS1iNzBjZWYzZTc2NTQiLCJ1dGkiOiJZVWdVczAyM0VrMi1hZWZRU2swOUFBIiwidmVyIjoiMS4wIn0.paIZtPILCg5QUwhpqsgdICY7sC1agvUrKDrYzdD9u7GyMiXC_xmR7roNIbvId7zV_YY8_6bX4lnbacdIBKDloyCfPx6XTYMYYpVMN-PKEyPg63JJF9VKcG1O_uXLw4h30NlAudOpK6uhv8J-G8mwH5NuZXSY08vjCCi3M2aQ62o44lJKKGZS6FlEB90ET6CAZnz2h7JhjoPbcLeS6qWTb_sd3gfGdJ4JHnFwDW2qUiI36Xw_QJF9HXmW3yWuwY7Mz5wNrU0O0lVHU5-DE0KZ_DvU4u8DLzsgWmbyX_hKfqItEbTh3paLMInpwKzqXz9UinFI3xbTSJpn-eXseYzLGg",
         message = message)
     }
+
+    override fun getServiceBusToken(): Call<AzureServiceBusToken> {
+        TODO("Not yet implemented")
+    }
+
+
 }

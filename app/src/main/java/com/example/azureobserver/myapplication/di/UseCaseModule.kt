@@ -1,10 +1,7 @@
 package com.example.azureobserver.myapplication.di
 
 import com.example.azureobserver.myapplication.data.repository.ServiceBusRepository
-import com.example.azureobserver.myapplication.domain.usecase.GetMessageFromServiceBusUseCase
-import com.example.azureobserver.myapplication.domain.usecase.GetMessageFromServiceBusUseCaseImpl
-import com.example.azureobserver.myapplication.domain.usecase.SendMessageToServiceBusUseCase
-import com.example.azureobserver.myapplication.domain.usecase.SendMessageToServiceBusUseCaseImpl
+import com.example.azureobserver.myapplication.domain.usecase.*
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -22,5 +19,9 @@ object UseCaseModule {
     @Provides
     fun provideSendMessageToServiceBusUseCase(repository: ServiceBusRepository) : SendMessageToServiceBusUseCase{
         return SendMessageToServiceBusUseCaseImpl(repository)
+    }
+    @Provides
+    fun provideGetTokenForServiceBusUseCase(repository: ServiceBusRepository) : GetTokenForServiceBusUseCase{
+        return GetTokenForServiceBusImpl(repository)
     }
 }
