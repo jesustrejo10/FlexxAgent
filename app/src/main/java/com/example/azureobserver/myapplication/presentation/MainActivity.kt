@@ -15,13 +15,10 @@ import com.microsoft.azure.sdk.iot.device.DeviceTwin.DeviceMethodCallback
 import com.microsoft.azure.sdk.iot.device.DeviceTwin.DeviceMethodData
 import com.microsoft.azure.sdk.iot.device.transport.IotHubConnectionStatus
 import dagger.hilt.android.AndroidEntryPoint
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
 import org.json.JSONException
 import org.json.JSONObject
 import org.liquidplayer.service.MicroService
 import java.io.UnsupportedEncodingException
-import kotlin.concurrent.thread
 
 @AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
@@ -29,7 +26,7 @@ class MainActivity : AppCompatActivity() {
     lateinit var binding : ActivityMainBinding
     private val connString = "HostName=retiaTest.azure-devices.net;DeviceId=MyAndroidDevice;SharedAccessKey=yhwhRxI8OdEH5eGjRizosLwCzYDZBhhG4M2Mrtj8FGo="
     lateinit var client : DeviceClient
-    val protocol : IotHubClientProtocol = IotHubClientProtocol.MQTT_WS
+    val protocol : IotHubClientProtocol = IotHubClientProtocol.MQTT
      var msgReceivedCount = 0
     private val handler = Handler()
     lateinit var  sendThread: Thread
