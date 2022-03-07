@@ -13,7 +13,7 @@ class MessageAdapter(val data: List<AzureMessage>) : RecyclerView.Adapter<Messag
     class MessageHolder(val view: View):RecyclerView.ViewHolder(view){
         fun render(messageFromServiceBus: AzureMessage){
             val messageView:TextView =view.findViewById(R.id.message)
-            messageView.text = messageFromServiceBus.message
+//            messageView.text = messageFromServiceBus.message
         //            TODO Finish this recycler view, this recycler view should print the messages comming from service Bus
         }
     }

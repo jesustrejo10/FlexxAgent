@@ -2,16 +2,15 @@ package com.example.azureobserver.myapplication.data.repository
 
 
 import com.example.azureobserver.myapplication.data.EndPoints
-import com.example.azureobserver.myapplication.domain.model.entities.AzureServiceBusToken
 import com.example.azureobserver.myapplication.domain.model.entities.BearerToken
 import com.example.azureobserver.myapplication.domain.model.request.AzureMessage
-import com.google.gson.Gson
+import okhttp3.RequestBody
 import retrofit2.Call
 import javax.inject.Inject
 
 interface ServiceBusRepository {
     fun getServiceBusMessages(): Call<AzureMessage>
-    fun sendMessageServiceBus(message: String): Call<Any>
+    fun  sendMessageServiceBus(message: RequestBody): Call<Any>
 }
 
 
@@ -20,13 +19,10 @@ class ServiceBusRepositoryImpl @Inject constructor(private val endPoints: EndPoi
         return endPoints.requestMessages(token = BearerToken.token)
     }
 
-    override fun sendMessageServiceBus(message: String): Call<Any> {
-        val gson : Gson = Gson()
-        val requestServiceBusMessage = AzureMessage(message)
-        val messageRequest = gson.toJson(requestServiceBusMessage)
+    override fun sendMessageServiceBus(message: RequestBody): Call<Any> {
         return endPoints.sendMessage(
             token = BearerToken.token,
-            message = messageRequest)
+            message = message)
     }
 
 

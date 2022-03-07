@@ -3,11 +3,21 @@ package com.example.azureobserver.myapplication.presentation.activity
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
+import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.example.azureobserver.databinding.ActivityServiceBusBinding
 import com.example.azureobserver.myapplication.presentation.viewmodel.ServiceBusActivityViewModel
-import com.google.gson.GsonBuilder
 import dagger.hilt.android.AndroidEntryPoint
+import org.w3c.dom.Attr
+import org.w3c.dom.Document
+import org.w3c.dom.Element
+import java.io.File
+import javax.xml.parsers.DocumentBuilder
+import javax.xml.parsers.DocumentBuilderFactory
+import javax.xml.transform.Transformer
+import javax.xml.transform.TransformerFactory
+import javax.xml.transform.dom.DOMSource
+import javax.xml.transform.stream.StreamResult
 
 @AndroidEntryPoint
 class ServiceBusActivity : AppCompatActivity() {
@@ -18,12 +28,19 @@ class ServiceBusActivity : AppCompatActivity() {
         binding = ActivityServiceBusBinding.inflate(layoutInflater)
         setContentView(binding.root)
         createViewModel()
+        initObservers()
         initButtons()
+    }
+
+    private fun initObservers() {
+        serviceBusViewModel.messageFromServiceBus.observe(this, Observer {
+            serviceBusViewModel.addDataToRecyclerView()
+        })
     }
 
     private fun initButtons() {
         binding.getMessageServiceBus.setOnClickListener {
-//            serviceBusViewModel.getMessageFromServiceBus()
+            serviceBusViewModel.getMessageFromServiceBus()
         }
 
         binding.sendMessageServiceBus.setOnClickListener {
@@ -36,6 +53,8 @@ class ServiceBusActivity : AppCompatActivity() {
             serviceBusViewModel.sendMessageToServiceBus(binding.inputOfUser.text.toString())
         }
     }
+
+
 
     private fun isValidTheInput(): Boolean {
        if (binding.inputOfUser.text.toString().isEmpty()){

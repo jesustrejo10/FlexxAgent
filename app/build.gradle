@@ -85,6 +85,9 @@ dependencies {
     }
     implementation ('com.microsoft.azure.android:azure-storage-android:2.0.0@aar')
     implementation ('org.apache.commons:commons-lang3:3.6')
-
+//
+//    //XMl parser
+//    implementation group: 'org.simpleframework', name: 'simple-xml', version: '2.7.1'
+//    implementation "com.fasterxml.jackson.module:jackson-module-kotlin:2.13.0"
 }
 apply from: new File(rootProject.projectDir, '.liquidcore/liquidcore.build.gradle')
