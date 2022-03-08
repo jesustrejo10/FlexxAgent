@@ -12,6 +12,7 @@ import dagger.hilt.components.SingletonComponent
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
+import retrofit2.converter.simplexml.SimpleXmlConverterFactory
 import java.util.concurrent.TimeUnit
 import javax.inject.Named
 import javax.inject.Singleton
@@ -38,6 +39,7 @@ object NetworkModule {
         return Retrofit.Builder()
             .baseUrl("https://bitwoo.servicebus.windows.net/")
             .client(okHttpClient)
+            .addConverterFactory(SimpleXmlConverterFactory.create())
             .addConverterFactory(GsonConverterFactory.create(gson))
             .addCallAdapterFactory(CoroutineCallAdapterFactory())
             .build()
