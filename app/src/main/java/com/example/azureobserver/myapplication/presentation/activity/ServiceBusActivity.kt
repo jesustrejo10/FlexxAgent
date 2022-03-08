@@ -6,6 +6,7 @@ import android.widget.Toast
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.example.azureobserver.databinding.ActivityServiceBusBinding
+import com.example.azureobserver.myapplication.domain.model.entities.ServiceBusMessageResponse
 import com.example.azureobserver.myapplication.presentation.viewmodel.ServiceBusActivityViewModel
 import dagger.hilt.android.AndroidEntryPoint
 import org.w3c.dom.Attr
@@ -33,8 +34,8 @@ class ServiceBusActivity : AppCompatActivity() {
     }
 
     private fun initObservers() {
-        serviceBusViewModel.messageFromServiceBus.observe(this, Observer {
-            serviceBusViewModel.addDataToRecyclerView()
+        serviceBusViewModel.messageFromServiceBus.observe(this, Observer {messageFromServiceBus : ServiceBusMessageResponse ->
+            showToast(messageFromServiceBus.messageFromApplication.toString())
         })
     }
 

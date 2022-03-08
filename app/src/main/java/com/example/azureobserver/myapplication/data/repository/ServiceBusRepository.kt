@@ -3,21 +3,19 @@ package com.example.azureobserver.myapplication.data.repository
 
 import com.example.azureobserver.myapplication.data.EndPoints
 import com.example.azureobserver.myapplication.domain.model.entities.BearerToken
-import com.example.azureobserver.myapplication.domain.model.entities.Feed
 import com.example.azureobserver.myapplication.domain.model.entities.ServiceBusMessageResponse
-import com.example.azureobserver.myapplication.domain.model.request.AzureMessage
 import okhttp3.RequestBody
 import retrofit2.Call
 import javax.inject.Inject
 
 interface ServiceBusRepository {
-    fun getServiceBusMessages(): Call<Feed>
+    fun getServiceBusMessages(): Call<ServiceBusMessageResponse>
     fun  sendMessageServiceBus(message: RequestBody): Call<Any>
 }
 
 
 class ServiceBusRepositoryImpl @Inject constructor(private val endPoints: EndPoints) :ServiceBusRepository {
-    override fun getServiceBusMessages(): Call<Feed> {
+    override fun getServiceBusMessages(): Call<ServiceBusMessageResponse> {
         return endPoints.requestMessages(token = BearerToken.token)
     }
 

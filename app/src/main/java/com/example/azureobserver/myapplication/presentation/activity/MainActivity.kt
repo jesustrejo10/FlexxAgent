@@ -4,6 +4,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
+import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 
 import com.example.azureobserver.databinding.ActivityMainBinding
@@ -23,6 +24,14 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
         createViewModel()
         initButtons()
+        initObservers()
+    }
+
+    private fun initObservers() {
+        mainActivityViewModel.isTheTokenInApp.observe(this , Observer { isTheTokenInTheApp : Boolean ->
+            if (isTheTokenInTheApp)
+                navigateToServiceBusActivity()
+        })
     }
 
     private fun createViewModel() {
@@ -35,9 +44,6 @@ class MainActivity : AppCompatActivity() {
         }
         binding.serviceBusStart.setOnClickListener {
             mainActivityViewModel.getAzureServiceBusToken()
-            if (isBearerLoginTokenInDevice()){
-                navigateToServiceBusActivity()
-            }
         }
     }
 
@@ -51,7 +57,7 @@ class MainActivity : AppCompatActivity() {
         startActivity(intent)
     }
 
-    private fun isBearerLoginTokenInDevice() = BearerToken.token.length > 5
+
 
     private fun showToast(message : String  ) {
         val toast = Toast.makeText(this, message, Toast.LENGTH_LONG)

@@ -2,11 +2,11 @@
 <project version="4">
   <component name="ProjectTreeColorHighlighter">
     <files>
-      <node color="2" path="$PROJECT_DIR$/app/src/main/java/com/example/azureobserver/myapplication/data" />
+      <node color="4" path="$PROJECT_DIR$/app/src/main/java/com/example/azureobserver/myapplication/data" />
       <node color="3" path="$PROJECT_DIR$/app/src/main/java/com/example/azureobserver/myapplication/di" />
       <node color="7" path="$PROJECT_DIR$/app/src/main/java/com/example/azureobserver/myapplication/domain" />
       <node color="7" path="$PROJECT_DIR$/app/src/main/java/com/example/azureobserver/myapplication/domain/usecase" />
-      <node color="4" path="$PROJECT_DIR$/app/src/main/java/com/example/azureobserver/myapplication/presentation" />
+      <node color="5" path="$PROJECT_DIR$/app/src/main/java/com/example/azureobserver/myapplication/presentation" />
     </files>
     <colors>
       <color id="1" value="#4f060d" name="Color 1" enabled="true" />
