@@ -56,7 +56,7 @@ class ServiceBusActivityViewModel @Inject constructor(
         val requestBodyText =
             """
                 <Login version="2.0">
-                    <messageFromApplication> {$message}</messageFromApplication>
+                    <messageFromApplication> $message</messageFromApplication>
                     <password> Best luck the next time</password>
                 </Login>"""
         val requestBody: RequestBody =
