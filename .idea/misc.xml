@@ -5,6 +5,7 @@
       <map>
         <entry key="app/src/main/res/layout/activity_generate_token.xml" value="0.20052083333333334" />
         <entry key="app/src/main/res/layout/activity_iothub.xml" value="0.290625" />
+        <entry key="app/src/main/res/layout/activity_java_script.xml" value="0.3296875" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.275" />
         <entry key="app/src/main/res/layout/activity_service_bus.xml" value="0.18568840579710144" />
         <entry key="app/src/main/res/layout/item_message.xml" value="0.290625" />

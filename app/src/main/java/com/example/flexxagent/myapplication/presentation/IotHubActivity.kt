@@ -30,7 +30,7 @@ class IotHubActivity : AppCompatActivity() {
         createViewModel()
         initButtons()
         setContentView(binding.root)
-//        executeJavaScriptMicroservice()
+
     }
 
     private fun createViewModel() {
@@ -41,36 +41,6 @@ class IotHubActivity : AppCompatActivity() {
         binding.initIotClient.setOnClickListener {
             initIotHubClient()
         }
-    }
-
-
-    private fun executeJavaScriptMicroservice() {
-
-        //Callback  for the ready event
-        val readyListener = MicroService.EventListener {
-                service, _, _ -> service.emit("ping")
-        }
-
-        //Callback for pong event
-        val pongListener = MicroService.EventListener {
-                _, _, jsonObject ->
-            val message = jsonObject.getString("message")
-            runOnUiThread {  }
-        }
-
-        //These listener are from the Js file, when these events happen,
-        // A callback will be executed, readyListener and pongListener respectively
-        val startListener =
-            MicroService.ServiceStartListener{
-                    service ->
-                service.addEventListener("ready", readyListener)
-                service.addEventListener("pong", pongListener)
-            }
-        //Uri for the microservice
-        val uri = MicroService.Bundle(this, "example")
-        val service = MicroService(this, uri,
-            startListener)
-        service.start()
     }
 
      private fun initIotHubClient() {

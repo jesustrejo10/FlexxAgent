@@ -20,7 +20,7 @@ LiquidCore.on( 'ping', () => {
     // When we get the ping from the host, respond with "Hello, World!"
     // and then exit.
     sayHello()
-    LiquidCore.emit( 'pong', { message: 'Hello, World from LiquidCore!' } )
+    LiquidCore.emit( 'pong', { message: 'Hello, World from javascript!' } )
     process.exit(0)
 })
 

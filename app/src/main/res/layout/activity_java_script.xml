@@ -6,4 +6,23 @@
     android:layout_height="match_parent"
     tools:context="com.example.flexxagent.myapplication.presentation.activity.JavaScriptActivity">
 
+    <TextView
+        android:id="@+id/textFromJs"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"/>
+ />
+    <Button
+        android:id="@+id/CallJsFunction"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAllCaps="false"
+        android:text="Call javascript log"
+        android:paddingVertical="12dp"
+        android:layout_marginVertical="12dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
 </androidx.constraintlayout.widget.ConstraintLayout>

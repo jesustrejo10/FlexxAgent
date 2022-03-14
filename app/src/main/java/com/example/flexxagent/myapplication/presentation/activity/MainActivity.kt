@@ -11,6 +11,7 @@ import com.example.azureobserver.databinding.ActivityMainBinding
 import com.example.azureobserver.myapplication.domain.model.entities.BearerToken
 import com.example.azureobserver.myapplication.presentation.IotHubActivity
 import com.example.azureobserver.myapplication.presentation.viewmodel.MainActivityViewModel
+import com.example.flexxagent.myapplication.presentation.activity.JavaScriptActivity
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -50,6 +51,14 @@ class MainActivity : AppCompatActivity() {
         binding.serviceBusStart.setOnClickListener {
             mainActivityViewModel.getAzureServiceBusToken()
         }
+        binding.goToJavascriptActivity.setOnClickListener {
+            navigateToJavascriptActivity()
+        }
+    }
+
+    private fun navigateToJavascriptActivity() {
+        val intent = Intent(this, JavaScriptActivity::class.java)
+        startActivity(intent)
     }
 
     private fun navigateToIotHubActivity() {

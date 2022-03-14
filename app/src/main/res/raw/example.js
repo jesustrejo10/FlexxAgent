@@ -239,7 +239,7 @@ __d(function (global, _$$_REQUIRE, _$$_IMPORT_DEFAULT, _$$_IMPORT_ALL, module, e
   LiquidCore.on('ping', () => {
     sayHello();
     LiquidCore.emit('pong', {
-      message: 'Hello, World from LiquidCore!'
+      message: 'Hello, World from javascript!'
     });
     process.exit(0);
   });
