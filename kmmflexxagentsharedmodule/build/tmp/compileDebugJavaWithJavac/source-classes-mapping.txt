@@ -1,0 +1,2 @@
+com/example/kmmflexxagentsharedmodule/BuildConfig.java
+ com.example.kmmflexxagentsharedmodule.BuildConfig
