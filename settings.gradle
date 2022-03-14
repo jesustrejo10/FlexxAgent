@@ -3,8 +3,10 @@ dependencyResolutionManagement {
     repositories {
         google()
         mavenCentral()
+        mavenLocal()
         jcenter() // Warning: this repository is going to shut down soon
     }
 }
 rootProject.name = "AzureObserver"
 include ':app'
+include ':kmmflexxagentsharedmodule'

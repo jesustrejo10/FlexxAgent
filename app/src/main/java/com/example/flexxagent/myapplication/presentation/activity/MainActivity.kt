@@ -25,6 +25,11 @@ class MainActivity : AppCompatActivity() {
         createViewModel()
         initButtons()
         initObservers()
+        testKmmLibrary()
+    }
+
+    private fun testKmmLibrary() {
+
     }
 
     private fun initObservers() {

@@ -1,4 +1,4 @@
-package com.example.azureobserver
+package com.example.flexxagent
 
 import org.junit.Test
 

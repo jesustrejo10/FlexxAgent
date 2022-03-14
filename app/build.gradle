@@ -21,7 +21,9 @@ android {
             //buildTypes.mBuildConfigFields 'DATATYPE','VARIABLE',|"GRADLE VARIABLE|"'
             buildConfigField 'String', 'DeviceConnectionString', project.hasProperty('DeviceConnectionString') ? '"'+project.property('DeviceConnectionString')+'"' : '"Define Device Connection"'
         }
+
     }
+
 
 
     buildTypes {
@@ -44,6 +46,7 @@ android {
     buildFeatures{
         viewBinding = true
     }
+
 }
 
 dependencies {
@@ -89,4 +92,7 @@ dependencies {
     implementation ('org.apache.commons:commons-lang3:3.6')
 
 }
+
+
+
 apply from: new File(rootProject.projectDir, '.liquidcore/liquidcore.build.gradle')
